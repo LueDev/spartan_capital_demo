@@ -9,11 +9,6 @@ variable "region" {
   type        = string
 }
 
-variable "db_password" {
-  description = "Master password for Cloud SQL"
-  type        = string
-  sensitive   = true
-}
 
 variable "domain" {
   description = "Domain name for the application"

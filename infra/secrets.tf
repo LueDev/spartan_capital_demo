@@ -1,3 +1,21 @@
+resource "random_password" "db_password" {
+  length  = 32
+  special = true
+  upper   = true
+  lower   = true
+  numeric = true
+}
+
+resource "google_secret_manager_secret" "db_password" {
+  secret_id = "db-password"
+  replication { automatic = true }
+}
+
+resource "google_secret_manager_secret_version" "db_password_v1" {
+  secret      = google_secret_manager_secret.db_password.id
+  secret_data = random_password.db_password.result
+}
+
 resource "google_secret_manager_secret" "db_url" {
   secret_id = "db-url"
   replication { automatic = true }
@@ -5,7 +23,7 @@ resource "google_secret_manager_secret" "db_url" {
 
 resource "google_secret_manager_secret_version" "db_url_v1" {
   secret      = google_secret_manager_secret.db_url.id
-  secret_data = "postgresql://app:${var.db_password}@/${google_sql_database.app.name}?host=/cloudsql/${google_sql_database_instance.main.connection_name}"
+  secret_data = "postgresql://app:${random_password.db_password.result}@/${google_sql_database.app.name}?host=/cloudsql/${google_sql_database_instance.main.connection_name}"
 
   depends_on = [
     google_sql_database_instance.main,

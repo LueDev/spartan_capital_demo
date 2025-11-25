@@ -22,3 +22,9 @@ output "database_connection_name" {
   description = "Cloud SQL connection name"
   value       = google_sql_database_instance.main.connection_name
 }
+
+output "db_password_secret_name" {
+  description = "Secret Manager secret name for database password"
+  value       = google_secret_manager_secret.db_password.secret_id
+  sensitive   = false
+}

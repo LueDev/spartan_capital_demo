@@ -83,6 +83,7 @@ out
 dist/
 .terraform/
 .terraform.lock.hcl
+terraform.tfvars
 .env
 .env.local
 .DS_Store

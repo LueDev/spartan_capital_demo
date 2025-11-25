@@ -1,8 +1,0 @@
-# Copy this file to terraform.tfvars and fill in your values
-# terraform.tfvars is gitignored and should not be committed
-
-project_id = "your-gcp-project-id"
-region     = "us-east1"
-db_password = "your-secure-database-password-here"
-domain     = "spartan.luisjorge.dev"  # Optional: your custom domain
-

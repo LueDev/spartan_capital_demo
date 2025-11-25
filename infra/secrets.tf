@@ -1,3 +1,7 @@
+data "google_project" "project" {
+  project_id = var.project_id
+}
+
 resource "random_password" "db_password" {
   length  = 32
   special = true
@@ -34,4 +38,16 @@ resource "google_secret_manager_secret_version" "db_url_v1" {
     google_sql_database.app,
     google_sql_user.app,
   ]
+}
+
+resource "google_secret_manager_secret_iam_member" "db_url_accessor" {
+  secret_id = google_secret_manager_secret.db_url.secret_id
+  role      = "roles/secretmanager.secretAccessor"
+  member    = "serviceAccount:${data.google_project.project.number}-compute@developer.gserviceaccount.com"
+}
+
+resource "google_secret_manager_secret_iam_member" "db_password_accessor" {
+  secret_id = google_secret_manager_secret.db_password.secret_id
+  role      = "roles/secretmanager.secretAccessor"
+  member    = "serviceAccount:${data.google_project.project.number}-compute@developer.gserviceaccount.com"
 }

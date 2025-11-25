@@ -4,7 +4,7 @@ resource "google_cloud_run_v2_service" "backend" {
 
   template {
     containers {
-      image = "us-east1-docker.pkg.dev/${var.project_id}/spartan-repo/backend:latest"
+      image = "us-east1-docker.pkg.dev/${var.project_id}/spartan-capital-demo-repo/backend:${var.image_tag}"
 
       env {
         name  = "DATABASE_URL"
@@ -14,11 +14,6 @@ resource "google_cloud_run_v2_service" "backend" {
             version = "latest"
           }
         }
-      }
-
-      env {
-        name  = "PORT"
-        value = "8080"
       }
 
       resources {
@@ -47,7 +42,7 @@ resource "google_cloud_run_v2_service" "frontend" {
 
   template {
     containers {
-      image = "us-east1-docker.pkg.dev/${var.project_id}/spartan-repo/frontend:latest"
+      image = "us-east1-docker.pkg.dev/${var.project_id}/spartan-capital-demo-repo/frontend:${var.image_tag}"
     }
   }
 }

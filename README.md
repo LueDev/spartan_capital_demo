@@ -162,7 +162,7 @@ gcloud services enable \
   artifactregistry.googleapis.com
 
 # Create Artifact Registry repository
-gcloud artifacts repositories create spartan-repo \
+gcloud artifacts repositories create spartan-capital-demo-repo \
   --repository-format=docker \
   --location=$REGION \
   --project=$PROJECT_ID
@@ -188,13 +188,15 @@ gcloud auth configure-docker ${REGION}-docker.pkg.dev
 
 # Build and push backend
 cd backend
-docker build -t ${REGION}-docker.pkg.dev/${PROJECT_ID}/spartan-repo/backend:latest .
-docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/spartan-repo/backend:latest
+docker build -t ${REGION}-docker.pkg.dev/${PROJECT_ID}/spartan-capital-demo-repo/backend:latest .
+docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/spartan-capital-demo-repo/backend:latest
 
-# Build and push frontend
+# Build and push frontend (default API path `/api` keeps traffic behind the load balancer)
 cd ../frontend
-docker build -t ${REGION}-docker.pkg.dev/${PROJECT_ID}/spartan-repo/frontend:latest .
-docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/spartan-repo/frontend:latest
+docker build \
+  --build-arg VITE_API_URL=/api \
+  -t ${REGION}-docker.pkg.dev/${PROJECT_ID}/spartan-capital-demo-repo/frontend:latest .
+docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/spartan-capital-demo-repo/frontend:latest
 ```
 
 ### Step 4: Configure Terraform Variables

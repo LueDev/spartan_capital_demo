@@ -35,7 +35,7 @@ app.use(cors());
 app.use(express.json());
 
 // Health check
-app.get("/health", (_req, res) => {
+app.get(["/health", "/api/health"], (_req, res) => {
   res.json({
     status: "ok",
     time: new Date().toISOString(),

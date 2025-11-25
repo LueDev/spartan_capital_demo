@@ -15,3 +15,8 @@ variable "domain" {
   default     = "spartan.luisjorge.dev"
   type        = string
 }
+
+variable "image_tag" {
+  description = "Docker image tag used for both frontend and backend"
+  type        = string
+}

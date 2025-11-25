@@ -10,3 +10,11 @@ resource "google_compute_subnetwork" "private" {
   network       = google_compute_network.spartan.id
   private_ip_google_access = true
 }
+
+resource "google_compute_subnetwork" "connector" {
+  name          = "spartan-connector-subnet"
+  ip_cidr_range = "10.0.16.0/28"
+  region        = var.region
+  network       = google_compute_network.spartan.id
+  purpose       = "VPC_CONNECTOR"
+}

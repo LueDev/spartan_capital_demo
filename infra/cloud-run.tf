@@ -52,14 +52,14 @@ resource "google_cloud_run_v2_service" "frontend" {
   }
 }
 
-resource "google_cloud_run_service_iam_member" "all_users_backend" {
+resource "google_cloud_run_v2_service_iam_member" "all_users_backend" {
   location = google_cloud_run_v2_service.backend.location
   name     = google_cloud_run_v2_service.backend.name
   role     = "roles/run.invoker"
   member   = "allUsers"
 }
 
-resource "google_cloud_run_service_iam_member" "all_users_frontend" {
+resource "google_cloud_run_v2_service_iam_member" "all_users_frontend" {
   location = google_cloud_run_v2_service.frontend.location
   name     = google_cloud_run_v2_service.frontend.name
   role     = "roles/run.invoker"

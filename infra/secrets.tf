@@ -8,7 +8,9 @@ resource "random_password" "db_password" {
 
 resource "google_secret_manager_secret" "db_password" {
   secret_id = "db-password"
-  replication { automatic = true }
+  replication {
+    auto {}
+  }
 }
 
 resource "google_secret_manager_secret_version" "db_password_v1" {
@@ -18,7 +20,9 @@ resource "google_secret_manager_secret_version" "db_password_v1" {
 
 resource "google_secret_manager_secret" "db_url" {
   secret_id = "db-url"
-  replication { automatic = true }
+  replication {
+    auto {}
+  }
 }
 
 resource "google_secret_manager_secret_version" "db_url_v1" {

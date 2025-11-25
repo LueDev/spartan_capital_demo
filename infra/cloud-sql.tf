@@ -12,7 +12,7 @@ resource "google_sql_database_instance" "main" {
     ip_configuration {
       ipv4_enabled    = false
       private_network = google_compute_network.spartan.id
-      require_ssl     = true
+      ssl_mode        = "ENFORCED"
     }
 
     backup_configuration {
@@ -26,6 +26,7 @@ resource "google_sql_database_instance" "main" {
   depends_on = [
     google_compute_network.spartan,
     google_compute_subnetwork.private,
+    google_service_networking_connection.private_vpc_connection,
   ]
 }
 

@@ -1,0 +1,63 @@
+.positions-table {
+  overflow-x: auto;
+}
+
+.positions-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.positions-table thead {
+  border-bottom: 2px solid var(--border);
+}
+
+.positions-table th {
+  text-align: left;
+  padding: 0.75rem 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.positions-table td {
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.positions-table tbody tr:hover {
+  background: rgba(0, 212, 170, 0.05);
+}
+
+.symbol-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.symbol {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.shares {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.value-cell {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .positions-table {
+    font-size: 0.875rem;
+  }
+
+  .positions-table th,
+  .positions-table td {
+    padding: 0.75rem 0.25rem;
+  }
+}
+

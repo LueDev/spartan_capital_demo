@@ -80,7 +80,12 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+dist/
+.terraform/
+.terraform.lock.hcl
+.env
+.env.local
+.DS_Store
 
 # Gatsby files
 .cache/

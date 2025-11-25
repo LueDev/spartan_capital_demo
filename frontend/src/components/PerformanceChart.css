@@ -1,0 +1,24 @@
+.performance-chart {
+  width: 100%;
+}
+
+.chart-tooltip {
+  background: rgba(30, 39, 73, 0.95);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.tooltip-date {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.tooltip-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--success);
+}
+

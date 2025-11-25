@@ -1,0 +1,83 @@
+.devops-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow);
+  margin-top: 2rem;
+}
+
+.devops-panel h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.devops-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.devops-section {
+  background: rgba(0, 212, 170, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.devops-section h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--success);
+}
+
+.devops-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.devops-section li {
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.devops-section li:last-child {
+  border-bottom: none;
+}
+
+.devops-section li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.devops-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.devops-footer p {
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.devops-footer strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .devops-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
